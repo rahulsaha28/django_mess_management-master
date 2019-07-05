@@ -1,0 +1,14 @@
+{% load widget_tweaks %}
+{% include "member/error_message.html" %}
+<h4><i class="list icon"></i>Each person meal for a day</h4>
+<form action="{% url 'mealformsave.page' %}" method="post" class="ui form">
+    {% csrf_token %}
+    <input type="hidden" name="poll_id" value={{ poll.id }}>
+    {% for field in form.visible_fields %}
+        <div class="field">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <button class="ui inverted green button ">Submit</button>
+</form>

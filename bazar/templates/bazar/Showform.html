@@ -1,0 +1,42 @@
+<div class="ui eight wide column">
+    <div class="ui form">
+        Click for add Bazar Cost
+        <button class="circular ui icon button add_bazar_cost">
+            <i class="plus icon"></i>
+        </button>
+        <div class="ui mini modal bazar_cost_form">
+            <div class="content">
+                {% load widget_tweaks %}
+                <form action="{% url 'pollbazar.pge' %}"  class="ui form" method="post" >
+                    {% csrf_token %}
+                    <input type="hidden" name="poll_id" value={{ poll.id }}>
+                    {% for field in bazarform.visible_fields %}
+                        <div class="field">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    <div class="field">
+                        <label>Date : </label>
+                        <input type="text" name="date" class="date_field">
+                    </div>
+                    <button class="ui button green">Submit</button>
+                </form>
+            </div>
+            <div class="actions">
+                <button class="ui button default cancel_bazar_cost">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    {#-----------This is for each person meal------------#}
+    {% include "meal/each_person_meal.html" %}
+    {#---------------------#}
+
+    {#---------This is for each person bazar---------#}
+        {% include "bazar/each_person_bazar.html" %}
+    {# ------------------------------ #}
+    {#----------this is for service charge---------#}
+        {% include "servicecharge/each_person_service_charge.html" %}
+    {# --------------------------- #}
+</div>

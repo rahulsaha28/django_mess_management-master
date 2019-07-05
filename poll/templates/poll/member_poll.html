@@ -1,0 +1,38 @@
+{% extends "poll/home.html" %}
+{% block title %}
+    Member:POLL
+{% endblock %}
+
+{% block content %}
+    <div class="ui grid">
+        {% block left_content %}
+            {{ block.super }}
+        {% endblock %}
+        {% block middel_content %}
+        {#----------------Include Bazar Cost--------------------#}
+            {% include "bazar/Showform.html" %}
+        {# ----------------#}
+        {% endblock %}
+    </div>
+    {% block script %}
+        {{ block.super }}
+    {% endblock %}
+    {% load static %}
+    <script type="application/javascript" src="{% static '/meal/sent_meal_edit.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".add_bazar_cost").on("click", function(){
+                $(".bazar_cost_form").modal("setting", "closable", false).modal("show")
+                $(".cancel_bazar_cost").on("click", function(){
+                    location.reload()
+                })
+            })
+
+            $(".date_field").datepicker({
+                format:"dd/mm/yyyy",
+                autoHide: true,
+            })
+
+        })
+    </script>
+{% endblock %}

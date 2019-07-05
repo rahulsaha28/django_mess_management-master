@@ -1,0 +1,127 @@
+{% extends "poll/home.html" %}
+{% block title %}
+    Manager Poll
+{% endblock %}
+
+{% block content %}
+
+    <div class="ui grid">
+        {% block left_content %}
+            {{ block.super }}
+        {% endblock %}
+        {% block middel_content %}
+            <div class="ui ten wide column">
+                <div class="ui styled fluid accordion">
+                    <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Total Meal :
+                    </div>
+                    <div class="active content">
+                        {#---------This is for Manager Meals---------#}
+                            {% include "meal/manager_meal.html" %}
+                        {# ------------------------------------------- #}
+                    </div>
+                    <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Bazar Cost :
+                    </div>
+                    <div class="content">
+                        {#----------This is for Manager Bazar--------------#}
+                            {% include 'bazar/manager_bazar.html' %}
+                        {# ----------------------------------------------- #}
+                    </div>
+                    <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Service Charge :
+                    </div>
+                    <div class="content">
+                        {#--------table for service charge---------#}
+                        {% include "servicecharge/showservicecharge.html" %}
+                        {#------------------#}
+                    </div>
+                </div>
+
+
+            </div>
+        {% endblock %}
+
+        {% block right_content %}
+            <div class="ui three wide column">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">{{ poll.poll_name }}</div>
+                        <div class="meta">Start Date: {{ poll.start_date }}</div>
+                        <div class="meta">End Date: {{ poll.end_date }}</div>
+                        <div class="description">
+                            <p>
+                            <h5>Member Number : {{ poll.member.count }}</h5>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <form action="{% url 'pollsetting.poll' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="poll_id" value={{ poll.id }}>
+                            <button class="ui button success">
+                                <i class="cogs icon"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+
+    {% block script %}
+        {{ block.super }}
+    {% endblock %}
+
+    {% load static %}
+    <script type="application/javascript" src="{% static '/member/meal.js' %}"></script>
+    <script type="application/javascript" src="{% static '/bazar/bazar.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            var mod = null
+            var t = 0
+            var c =0
+            var clo = null
+            var date_1 = null
+            var del = null
+            var del_clo = null
+            $(".edit_button").on("click", function () {
+                if (t == 0) {
+                    mod = $(this).parent().children("div.modal-1").children()
+                    clo = $(mod).children().children("button.cancel-button")
+                    date_1 = $(mod).children().children().children().children("input[name=date]")
+                    t++
+                }
+                $(mod).modal("setting", "closable", false).modal("show")
+                $(date_1).datepicker({
+                    format: "dd/mm/yyyy"
+                })
+                $(clo).on("click", function () {
+                    $(mod).modal("hide")
+                    location.reload()
+                })
+
+            })
+
+            $(".delete_service_charge").on("click", function () {
+                if (c == 0) {
+                    del = $(this).parent().children(".delete_modal").children()
+
+                    c++
+                }
+                $(del).modal("setting", "closable", false).modal("show")
+                $(".close_button_del").on("click", function(){
+                    location.reload()
+                })
+            })
+
+
+        })
+
+    </script>
+{% endblock %}

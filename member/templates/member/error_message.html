@@ -1,0 +1,11 @@
+
+{% if form.errors %}
+<div class="ui error message">
+    <i class="close icon"></i>
+    <ul class="list">
+        {% for field in form %}
+            {{ field.errors }}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

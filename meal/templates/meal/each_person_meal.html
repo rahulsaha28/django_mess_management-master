@@ -1,0 +1,64 @@
+{% if meals.count > 0 %}
+    <table class="ui celled padded table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+            <th>Pending</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td>{{ meal.date_of_creation|date }}</td>
+                <td>{{ meal.b }}</td>
+                <td>{{ meal.l }}</td>
+                <td>{{ meal.d }}</td>
+                {% if meal.pending %}
+                    <td><i class="ui red empty circular label"></i></td>
+                {% else %}
+                    <td><span class="ui green empty circular label"></span></td>
+                {% endif %}
+
+                <td>
+                    <button class="ui icon button yellow edit_meal_sent_m">
+                        <i class="ui edit icon"></i>
+                    </button>
+                    <div class="ui mini modal edit_meal_modal_m">
+                        <div class="ui content">
+                            <form method="post" class="ui form" action="{% url 'edit_by_member.page' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="meal_id" value={{ meal.id }}>
+                                <input type="hidden" name="poll_id" value={{ meal.poll.id }}>
+                                <div class="ui field">
+                                    <label>Breakfast : </label>
+                                    <input  name="b" type="number" value={{ meal.b }}>
+                                </div>
+                                <div class="ui field">
+                                    <label>Lunch : </label>
+                                    <input  name="l" type="number" value={{ meal.l }}>
+                                </div>
+                                <div class="ui field">
+                                    <label>Dinner : </label>
+                                    <input  name="d" type="number" value={{ meal.d }}>
+                                </div>
+                                <button class="ui button green">
+                                    Sent
+                                </button>
+                            </form>
+                        </div>
+                        <div class="ui actions">
+                            <button class="ui button grey cancel_meal_sent_m">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

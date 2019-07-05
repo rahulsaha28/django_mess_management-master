@@ -1,0 +1,101 @@
+<br>
+<br>
+<h3>For add Service charge click the Button</h3>
+<hr>
+<button class="ui icon circular button yellow plus_button">
+    <i class="plus icon"></i>
+</button>
+
+
+{#<div class="ui mini modal service_modal">#}
+{#    <div class="content">#}
+{#        <form method="post" action="{% url 'service_charge_save' %}" class="ui form">#}
+{#            {% csrf_token %}#}
+{#            <div class="field">#}
+{#                <label>Service Name : </label>#}
+{#                <input name="service_name" type="text" placeholder="service name">#}
+{#            </div>#}
+{#            <div class="field">#}
+{#                <label>Amount : </label>#}
+{#                <input name="debit_tk" type="number" placeholder="Amount">#}
+{#            </div>#}
+{#            <div class="field">#}
+{#                <div class="ui center aligned basic segment">#}
+{#                    <div class="ui checkbox">#}
+{#                        <input type="checkbox" name="select_all">#}
+{#                        <label>For all Member</label>#}
+{#                    </div>#}
+{#                    <div class="ui horizontal divider">#}
+{#                        OR#}
+{#                    </div>#}
+{#                    <select name="members" id="" multiple="" class="ui fluid dropdown">#}
+{#                        <option value="">Member</option>#}
+{#                        {% if poll.member.all.count > 0 %}#}
+{#                            {% for member in poll.member.all %}#}
+{#                                <option value={{ member.id }}>{{ member.email }}</option>#}
+{#                            {% endfor %}#}
+{#                        {% endif %}#}
+{#                    </select>#}
+{#                </div>#}
+{#            </div>#}
+{#            <button class="ui button positive">Add</button>#}
+{#        </form>#}
+{#    </div>#}
+{#    <div class="actions">#}
+{#        <button class="ui button basic">Cancel</button>#}
+{#    </div>#}
+{#</div>#}
+{% load widget_tweaks %}
+<div class="ui mini modal service_modal">
+    <div class="content">
+        <form method="post" action="{% url 'service_charge_save' %}" class="ui form">
+            {% csrf_token %}
+            <input name="poll_id" type="hidden" value={{ poll.id }}>
+            {% for field in serviceform.visible_fields %}
+                {% if  field|widget_type == "checkboxinput" %}
+                    <div class="ui checkbox">
+                        {{ field }}
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    </div>
+                {% else %}
+                    <div class="field">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+                <h5>OR</h5>
+                <div class="field">
+                    <select name="member" id="" class="ui fluid dropdown" multiple>
+                        <option value=""></option>
+                        {% if poll.member.all.count > 0 %}
+                            {% for member in poll.member.all %}
+                                <option value="{{ member.id }}">{{ member.email }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="field">
+                    <input type="text" name="date_created" id="id_date_created" required>
+                </div>
+
+            <button class="ui button positive">Add</button>
+        </form>
+    </div>
+    <div class="actions">
+        <button class="ui button basic">Cancel</button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".plus_button").on("click", function () {
+            $(".service_modal").modal("show")
+        })
+        $("#id_date_created").datepicker({
+            format: "dd/mm/yyyy",
+            autoHide: true
+        })
+    })
+</script>

@@ -1,0 +1,116 @@
+{% if servicecharges.count > 0 %}
+    <table class="ui celled padded table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Service Name</th>
+            <th><i class="rupee sign icon"></i>Charge</th>
+            <th><i class="tasks icon"></i>Total Member</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for servicecharge in servicecharges %}
+            <tr>
+                <td>{{ servicecharge.date }}</td>
+                <td>{{ servicecharge.service_name|upper }}</td>
+                <td>{{ servicecharge.debit_tk }}</td>
+                <td>
+                    <div class="ui compact menu">
+                        <div class="ui simple dropdown item show_all">
+                            {{ servicecharge.member.all.count }} Members
+                            <i class="dropdown icon"></i>
+
+                            <div class="menu">
+                                {% for member in servicecharge.member.all %}
+                                    <div class="item">{{ member.email }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="ui button yellow edit_button">
+                        <i class="edit icon"></i>
+                    </span>
+                    <div class="modal-1">
+                        <div class="ui modal">
+                            <div class="content">
+                                <form class="ui form" action="{% url 'edit_service_charge' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="servicecharge_id" value={{ servicecharge.id }}>
+                                    <input type="hidden" name="poll_id" , value="{{ poll.id }}">
+                                    <div class="field">
+                                        <label>Service Name :</label>
+                                        <input type="text" name="service_name" value="{{ servicecharge.service_name }}">
+                                    </div>
+                                    <div class="field">
+                                        <label>Amount : </label>
+                                        <input type="number" name="debit_tk" value={{ servicecharge.debit_tk }}>
+                                    </div>
+                                    <div class="field">
+                                        <label>Selected member only If you want to edit : </label>
+                                        <select multiple name="member" class="ui fluid dropdown">
+                                            <option value="">Member</option>
+                                            {% if poll.member.all.count > 0 %}
+                                                {% for member in  poll.member.all %}
+                                                    <option value="{{ member.id }}">{{ member.email }}</option>
+                                                {% endfor %}
+
+                                            {% endif %}
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Date : </label>
+                                        <input type="text" name="date" value="{{ servicecharge.date }}">
+                                    </div>
+                                    <button class="ui labeled icon blue button">
+                                        <i class="edit icon"></i>
+                                        Edit
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="actions">
+                                <button class="ui button red cancel-button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+                    <span class="ui button red delete_service_charge">
+                        <i class="trash icon"></i>
+                    </span>
+                    <div class="delete_modal">
+                        <div class="ui mini modal ">
+                            <div class="content">
+                                <form method="post" class="ui form" action="{% url 'delete_service_charge' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="service_id" value="{{ servicecharge.id }}">
+                                    <input type="hidden" name="poll_id" value="{{ poll.id }}">
+                                    <div class="field">
+                                        <p>Are you sure you want to delete {{ servicecharge.service_name }}</p>
+                                    </div>
+                                    <button class="ui button red">Delete</button>
+                                </form>
+                            </div>
+                            <div class="actions">
+                                <div class="ui inverted orange button right floated close_button_del">
+                                    <i class="x icon"></i>
+                                    Close
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+

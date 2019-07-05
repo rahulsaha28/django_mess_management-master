@@ -1,0 +1,120 @@
+{% extends "member/base.html" %}
+{% block title %}
+    Home Mess Management
+{% endblock %}
+
+{% block content %}
+    <div class="ui grid">
+        {% block left_content %}
+            {% if member_polls.polls|length > 0 %}
+                <div class="ui three wide column">
+                    <div class="ui styled accordion">
+                        {#----------member_polls----------------#}
+                        {% for member_poll in member_polls.polls %}
+                            <div class="title">
+                                <i class="dropdown icon"></i>
+                                <a href="{% url 'memberpole.page' member_poll.poll.id %}">{{ member_poll.poll.poll_name }}</a>
+                                <span class="ui red empty circular label right floated">1</span>
+                                <div class="ui blue">Start : {{ member_poll.poll.start_date }}</div>
+                                <div class="ui blue">End : {{ member_poll.poll.end_date }}</div>
+                            </div>
+                            <div class="content">
+                                <p class="transition hidden">
+                                    <div class="top attached segment">
+                                <p>Meal rate : {{ member_poll.meal_rate|floatformat }}</p>
+                            </div>
+                            <div class="top attached segment">
+                                <p>Total Meal : {{ member_poll.total_meal }}</p>
+                            </div>
+                            <div class="top attached segment">
+                                <p> Total Bazar : {{ member_poll.total_bazar_cost }}</p>
+                            </div>
+                            <div class="top attached segment">
+                                <p> Total Service Charge : {{ member_poll.total_service_charge|floatformat }}</p>
+                            </div>
+                            <div class="top attached segment">
+                                <p> Debit Tk : {{ member_poll.debit_tk|floatformat }}</p>
+                            </div>
+                            <div class="top attached segment">
+                                <p> Credit Tk : {{ member_poll.credit_tk|floatformat }}</p>
+                            </div>
+                            <hr>
+                            <div class="top attached segment">
+                                <p>Balance : {{ member_poll.balance|floatformat }}</p>
+                            </div>
+                            </p>
+                            </div>
+                        {% endfor %}
+                    {#--------------------------#}
+
+                </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+
+    {% block middel_content %}
+        <div class="ui six wide centered column">
+            <a href="{% url 'pollform.page' %}" class="ui button basic">
+                <i class="plus icon"></i>Create Mess
+            </a>
+            <br>
+            {% if polls.count %}
+                <div class="ui segments">
+                    {% for poll in polls %}
+                        <div class="ui clearing segment">
+                            <b><i class="briefcase icon"></i>{{ poll.poll_name }}</b> <br><span
+                                class="ui floated left"><i
+                                class="calendar alternate icon"></i>{{ poll.start_date }} </span>
+                            to <span class="ui floated right"> {{ poll.end_date }}</span>
+                            <br>
+                            <br>
+                            <button class="ui button red delete_poll">Delete</button>
+                            <div class="my_model">
+                                <div class="ui mini modal">
+                                    <div class="content">
+                                        <p>Are you sure you want to Delete <b>{{ poll.poll_name }}</b></p>
+                                    </div>
+                                    <div class="actions">
+                                        <button class="ui left floated button yellow cancel_poll">Cancel</button>
+                                        <form method="post" action="{% url 'polldelete.page' %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="poll_id" value={{ poll.id }}>
+                                            <button class="ui button blue">Conform</button>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="{% url "getcreatedpoll.page" poll.id %}"
+                               class="ui right floated button">Enter</a>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+    {% endblock %}
+
+    {% block right_content %}
+    {% endblock %}
+    </div>
+    {% block script %}
+        <script>
+            $(document).ready(function () {
+                $(".ui .accordion").accordion()
+            })
+
+            $(".delete_poll").on("click", function () {
+
+                var model = $(this).parent().children("div.my_model").children()
+
+                $(model).modal("setting", "closable", false).modal("show")
+            })
+            $(".cancel_poll").on("click", function () {
+                location.reload()
+            })
+        </script>
+    {% endblock %}
+{% endblock %}

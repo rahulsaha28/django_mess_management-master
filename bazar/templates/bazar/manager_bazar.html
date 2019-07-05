@@ -1,0 +1,72 @@
+{% if bazars.count %}
+    <table class="ui celled padded table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th><i class="user icon"></i>Member Name</th>
+            <th><i class="rupee sign icon"></i>Bazar Amount</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for bazar in bazars %}
+        <tr>
+            <td>{{ bazar.date_created }}</td>
+            <td>{{ bazar.member.email }}</td>
+            <td>{{ bazar.cradit_tk }}</td>
+            <td>
+                <button class="ui button tiny yellow edit_bazar_m">
+                    <i class="ui edit icon"></i>
+                    Edit
+                </button>
+                <div class="ui mini modal edit_bazar_model_m">
+                    <div class="ui content">
+                        <form method="post" class="ui form" action="{% url 'bazar_edit_manager.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="poll_id" value={{ bazar.poll.id }}>
+                            <input type="hidden" name="bazar_id" value={{ bazar.id }}>
+                            <div class="field">
+                                <label>Date : </label>
+                                <input type="text" name="date_created" value="{{ bazar.date_created }}">
+                            </div>
+                            <div class="field">
+                                <label>Amount : </label>
+                                <input name="cradit_tk" type="number" value={{ bazar.cradit_tk }}>
+                            </div>
+                            <button class="ui button mini success">Save</button>
+                        </form>
+                    </div>
+                    <div class="ui actions">
+                        <button class="ui button grey bazar_cancel_b">Cancel</button>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <button class="ui button red bazar_delete_button_b">
+                    <i class="ui trash icon"></i>
+                </button>
+                <div class="ui mini modal bazar_delete_modal_b">
+                    <div class="ui content">
+                        Are you sure you want to delete Bazar cost of member {{ bazar.member.email }}
+                        <form method="post" action="{% url 'bazar_delete_manager.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="bazar_id" value={{ bazar.id }}>
+                            <input type="hidden" name="poll_id" value={{ bazar.poll.id }}>
+                            <button class="ui tiny button red">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                    <div class="ui actions">
+                        <button class="ui button grey bazar_cancel_b">Cancel</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endif %}

@@ -1,0 +1,37 @@
+{% load mathfilters %}
+{% if servicecharges.count > 0 %}
+    <table class="ui celled padded table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Service Name</th>
+            <th>Service Tk</th>
+            <th>Total Member</th>
+            <th>Total Tk</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for servicecharge in servicecharges %}
+            <tr>
+                <td>{{ servicecharge.date }}</td>
+                <td>{{ servicecharge.service_name }}</td>
+                <td>{{ servicecharge.debit_tk|div:servicecharge.member.all.count|floatformat }}</td>
+                <td>
+                    <div class="ui dropdown button">
+                        <span>{{ servicecharge.member.all.count }}</span>
+                        <div class="menu">
+                            {% for member in servicecharge.member.all %}
+                                <div class="item">{{ member.email }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+                    {{ servicecharge.debit_tk }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

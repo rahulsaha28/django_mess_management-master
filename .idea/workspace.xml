@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="382ecebd-b258-4708-ba43-08670f081985" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/django_mess_management-master.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/migrations/0002_auto_20190701_1618.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/static/bazar/bazar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/templates/bazar/Showform.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/templates/bazar/each_person_bazar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/templates/bazar/manager_bazar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bazar/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/migrations/0002_auto_20190701_1618.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/migrations/0003_auto_20190702_1815.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/migrations/0004_auto_20190704_0140.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/static/meal/sent_meal_edit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/templates/meal/Meal_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/templates/meal/each_person_meal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/templates/meal/manager_meal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meal/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/managers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/accordion.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/accordion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/accordion.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/accordion.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/ad.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/ad.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/api.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/breadcrumb.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/breadcrumb.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/button.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/card.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/card.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/checkbox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/checkbox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/checkbox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/checkbox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/colorize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/colorize.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/comment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/comment.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/container.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/container.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dimmer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dimmer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dimmer.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dimmer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/divider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/divider.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dropdown.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dropdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dropdown.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/dropdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/embed.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/embed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/embed.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/embed.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/feed.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/feed.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/flag.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/flag.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/form.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/form.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/form.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/header.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/icon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/icon.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/image.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/image.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/input.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/input.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/item.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/item.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/label.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/label.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/list.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/loader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/loader.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/menu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/menu.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/message.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/message.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/modal.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/modal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/nag.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/nag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/nag.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/nag.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/placeholder.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/placeholder.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/popup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/popup.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/progress.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/progress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/progress.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/progress.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/rail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/rail.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/rating.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/rating.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/rating.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/rating.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/reset.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/reveal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/reveal.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/search.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/search.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/segment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/segment.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/shape.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/shape.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/shape.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/shape.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sidebar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sidebar.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sidebar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/site.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/site.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/site.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/state.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/statistic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/statistic.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/step.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/step.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sticky.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sticky.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sticky.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/sticky.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/tab.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/tab.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/tab.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/tab.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/table.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/transition.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/transition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/transition.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/transition.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/video.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/video.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/video.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/visibility.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/visibility.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/visit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/components/visit.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/datepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/datepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/meal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/package.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/semantic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/semantic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/semantic.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/semantic.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/brand-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/brand-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/brand-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/brand-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/brand-icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/icons.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/outline-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/outline-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/outline-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/outline-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/fonts/outline-icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/static/member/themes/default/assets/images/flags.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/error_message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/login/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/profile/all_friends.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/profile/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/profile/search_result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/signup/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/templates/member/success_message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/member/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mess_management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mess_management/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mess_management/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mess_management/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/NotificationSetting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/migrations/0002_auto_20190701_1638.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/templates/notification/notification.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/templates/notification/show_notification.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/ManagerManagement.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/MemberManagement.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/custome_date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/templates/poll/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/templates/poll/manager_poll.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/templates/poll/member_poll.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/templates/poll/poll_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/templates/poll/poll_management.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/templates/poll/poll_setting.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/poll/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/static/servicecharge/service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/templates/servicecharge/each_person_service_charge.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/templates/servicecharge/servicechargeadd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/templates/servicecharge/showservicecharge.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servicecharge/views.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/member/templates/member/profile/profile.html" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="46" />
+    <option name="y" value="-9" />
+    <option name="width" value="1346" />
+    <option name="height" value="698" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="django_mess_management-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_mess_management-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="django_mess_management-master" type="Python.DjangoServer" factoryName="Django server">
+      <module name="django_mess_management-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="382ecebd-b258-4708-ba43-08670f081985" name="Default Changelist" comment="" />
+      <created>1562308783846</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562308783846</updated>
+      <workItem from="1562308785753" duration="2935000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changing some portion.">
+      <created>1562309405461</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562309405461</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2935000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12934947" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" visible="true" weight="0.05042017" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Python Console" order="5" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="SciView" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changing some portion." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing some portion." />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/member/templates/member/profile/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="480">
+            <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

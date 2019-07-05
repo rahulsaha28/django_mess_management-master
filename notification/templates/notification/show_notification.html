@@ -1,0 +1,88 @@
+{% extends "poll/home.html" %}
+{% block title %}
+    Notification
+{% endblock %}
+
+{% block content %}
+    <div class="ui grid">
+        {% block left_content %}
+            {{ block.super }}
+        {% endblock %}
+        {% block middel_content %}
+            <div class="ui six wide centered column">
+                <div class="ui compact message">
+                    {% if notification.get_status_display == "friend" %}
+                        <p>{{ notification.from_member.email }} sent you friend request.</p>
+                        <form method="post" class="ui inline" action="{% url 'approvespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button primary">Approve</button>
+                        </form>
+                        <form method="post" class="ui inline" action="{% url 'deletespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button right floated">Cancel</button>
+                        </form>
+                    {% elif notification.get_status_display == "poll_member_request" %}
+                        <p>{{ notification.from_member.email }} sent you Mess member request.</p>
+                        <form method="post" class="ui inline" action="{% url 'approvespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button primary">Approve</button>
+                        </form>
+                        <form method="post" class="ui inline" action="{% url 'deletespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button right floated">Cancel</button>
+                        </form>
+
+                    {% elif notification.get_status_display == "bazar_cost" %}
+                        <p>{{ notification.from_member.email }} sent his bazar cost ( {{ notification.date|date }}
+                            ).</p>
+                        <form method="post" class="ui inline" action="{% url 'approvespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button primary">Approve</button>
+                        </form>
+                        <form method="post" class="ui inline" action="{% url 'deletespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button right floated">Cancel</button>
+                        </form>
+
+                    {% elif notification.get_status_display == "edit" %}
+                        <p>{{ notification.from_member.email }} want to Edit his Meal.</p>
+                        <p>
+                            {% if editmeal.b != editmeal.meal.b %}
+                                Breakfast =  {{ editmeal.meal.b }}<br>
+                                Edited = {{ editmeal.b }}
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if editmeal.l != editmeal.meal.l %}
+                                Lunch =  {{ editmeal.meal.l }}<br>
+                                Edited = {{ editmeal.l }}
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if editmeal.d != editmeal.meal.d %}
+                                Dinner =  {{ editmeal.meal.d }}<br>Edited = {{ editmeal.d }}
+                            {% endif %}
+                        </p>
+                        <form method="post" class="ui inline" action="{% url 'approvespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button primary">Approve</button>
+                        </form>
+                        <form method="post" class="ui inline" action="{% url 'deletespecificnotify.page' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="notify_id" value={{ notification.id }}>
+                            <button class="ui button right floated">Cancel</button>
+                        </form>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

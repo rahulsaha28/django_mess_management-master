@@ -1,0 +1,159 @@
+{% extends "poll/home.html" %}
+{% block title %}
+    Setting
+{% endblock %}
+
+{% block content %}
+    <div class="ui grid">
+        {% block left_content %}
+            {{ block.super }}
+        {% endblock %}
+        {% block middel_content %}
+            <div class="ui eight wide column">
+                {% if friends.count > 0 %}
+                    <form method="post" action="{% url 'pollselectmenber.poll' %}" class="ui form">
+                        {% csrf_token %}
+                        <input type="hidden" name="poll_id" value={{ poll.id }}>
+                        <div class="field">
+                            <div class="ui sub header">Select Friend</div>
+                            <select multiple="" class="ui normal  dropdown" name="member" id="">
+                                <option value="">Select Friend</option>
+                                {% for friend in friends %}
+                                    {% if friend.profile != user.profile %}
+                                        <option value="{{ friend.profile.member.id }}">{{ friend.profile.member.email }}</option>
+                                    {% elif friend.member_one != user %}
+                                        <option value="{{ friend.member_one.id }}">{{ friend.member_one.email }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button class="ui button">Submit</button>
+                    </form>
+                {% endif %}
+
+                {#------include the MealForm  here------ #}
+                {% if not defaultmeal.count > 0 %}
+                    {% include "meal/Meal_form.html" %}
+                {% endif %}
+                {#------------#}
+
+                {# ---------include service charge------------#}
+                {% include "servicecharge/servicechargeadd.html" %}
+                {# --------------#}
+
+                <br>
+                <br>
+                {# -----------This is the include Management-------------- #}
+                    {% include "poll/poll_management.html" %}
+                {# ------------------------------------------------------- #}
+            </div>
+        {% endblock %}
+
+        {% block right_content %}
+            <div class="ui five wide column">
+                {% if poll.member.count > 0 %}
+                    <div class="ui fluid styled accordion">
+                        {% for member in poll.member.all %}
+                            <div class="title active">
+                                <i class="dropdown icon"></i>
+                                {% if member.email == user.email %}
+                                    {{ member.email }}<a class="ui red empty circular label"></a>
+                                {% else %}
+                                    {{ member.email }}
+                                {% endif %}
+                            </div>
+                            <div class="content">
+
+                                <div class="ui right floated">
+                                    <form method="post" action="{% url 'pollmemberdelete.page' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="poll_id" value={{ poll.id }}>
+                                        <input type="hidden" name="member_id" value={{ member.id }}>
+                                        <button class="ui button red">
+                                            <i class="trash alternate icon"></i>
+                                        </button>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {# ------------------------------------ #}
+                {% if defaultmeal.count > 0 %}
+                    <table class="ui celled striped table">
+                        <thead>
+                        <tr>
+                            <th colspan="4">Set the Meal per day per member.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Brake Fast</td>
+                            <td>Lunch</td>
+                            <td>Dinner</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ defaultmeal.first.b }}</td>
+                            <td>{{ defaultmeal.first.l }}</td>
+                            <td>{{ defaultmeal.first.d }}</td>
+                            <td>
+                                <span class="ui button green edit_meal">
+                                    <i class="edit icon"></i>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    {#-------This is the popup window for edit-------- #}
+                    <div class="ui mini modal modal_form">
+                        <div class="content">
+                            <form action="{% url 'edit_meal_save.page' %}" method="post" class="ui form">
+                                {% csrf_token %}
+                                <input type="hidden" name="poll_id" value={{ poll.id }}>
+                                <input type="hidden" name="default_meal_id" value={{ defaultmeal.first.id }}>
+                                <div class="field">
+                                    <label>BrakeFast : </label>
+                                    <input type="number" name="b" value={{ defaultmeal.first.b }}>
+                                </div>
+                                <div class="field">
+                                    <label>Lunch : </label>
+                                    <input type="number" name="l" value={{ defaultmeal.first.l }}>
+                                </div>
+                                <div class="field">
+                                    <label>Dinner : </label>
+                                    <input type="number" name="d" value={{ defaultmeal.first.d }}>
+                                </div>
+                                <button class="ui button primary">Submit</button>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        {% endblock %}
+    </div>
+
+    {% block script %}
+        {{ block.super }}
+    {% endblock %}
+
+    <script>
+        $(document).ready(function () {
+            $(".max.example .ui.normal.dropdown").dropdown({
+                maxSelections: 4
+            })
+            $(".edit_meal").on("click", function () {
+                $(".modal_form").modal("setting", "closable", false).modal("show")
+            })
+        })
+    </script>
+{% endblock %}

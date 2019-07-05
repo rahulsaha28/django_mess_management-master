@@ -1,0 +1,30 @@
+{% if bazars.count > 0 %}
+    <table class="ui celled padded table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Bazar Cost</th>
+            <th>Pending</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bazar in bazars %}
+            <tr>
+                <td>{{ bazar.date_created }}</td>
+                <td>{{ bazar.cradit_tk }}</td>
+                <th></th>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="meal_id" value="{{ bazar.id }}">
+                        <button class="ui icon button yellow">
+                            <i class="ui edit icon"></i>
+                        </button>
+                    </form>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

@@ -1,0 +1,50 @@
+{% extends "member/base.html" %}
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    <div class="ui grid">
+        <div class="ui one wide column">
+
+        </div>
+        <div class="ui six wide column">
+            <div class="ui link cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">{{ user.email }}</div>
+                        <div class="meta">Member</div>
+                        <div class="description">
+                            Hi my Name is {{ user.email }}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="right floated">{{ user.date_joined|date }}</span>
+                        <span>
+                            <i class="user icon"></i>
+                             Friends
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui six wide column">
+            <form action="{% url 'findfriend.page' %}" method="post">
+                {% csrf_token %}
+                <div class="ui left icon input">
+                    <input type="search" name="findemail" placeholder="Search by email">
+                    <i class="users icon"></i>
+                </div>
+            </form>
+            <div>
+                {% block search_result %}
+                {% endblock %}
+                {% block show_all_friend %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="ui three wide  column">
+
+        </div>
+    </div>
+{% endblock %}

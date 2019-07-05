@@ -1,0 +1,55 @@
+<div class="menu">
+    {% if user.profile.notification_set.all.count > 0 %}
+        <div class="ui celled list">
+            {% for notify in user.profile.notification_set.all %}
+                {% if notify.get_status_display == "friend" %}
+                    <div class="item">
+                        <div class="content">
+                            <form method="post" action="{% url 'showspecificnotify.page' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="notify_id" value={{ notify.id }}>
+                                <button class="ui button success">
+                                    {{ notify.from_member.email }} sent you friend request.
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% elif notify.get_status_display == "bazar_cost" %}
+                    <div class="item">
+                        <div class="content">
+                            <form method="post" class="header item" action="{% url 'showspecificnotify.page' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="notify_id" value={{ notify.id }}>
+                                <button class="ui button grey">{{ notify.from_member.email }} sent his Bazar cost.
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% elif notify.get_status_display == "poll_member_request" %}
+                    <div class="item">
+                        <div class="content">
+                            <form method="post" class="header item" action="{% url 'showspecificnotify.page' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="notify_id" value={{ notify.id }}>
+                                <button class="ui button grey">{{ notify.from_member.email }} sent you to request add
+                                    his Mess member.
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% elif notify.get_status_display == "edit" %}
+                    <div class="item">
+                        <div class="content">
+                            <form method="post" class="header item" action="{% url 'showspecificnotify.page' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="notify_id" value={{ notify.id }}>
+                                <button class="ui button grey">{{ notify.from_member.email }} want to Edit his meal
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

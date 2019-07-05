@@ -1,0 +1,99 @@
+{% extends "member/profile/profile.html" %}
+
+{% block show_all_friend %}
+    <br>
+    <br>
+    <a class="ui button sent" href="">
+        <i class="meh outline icon"></i>Your sending request
+    </a>
+    {% if friends.count > 0 %}
+        <div class="ui middle aligned divided list">
+            {% for friend in friends %}
+                <div class="item">
+                    <div class="right floated content">
+                        <div class="ui mini modal friend">
+                            <div class="content">
+                                <p>Are you sure you want to un-friend
+                                    {% if friend.profile.member.email != user.email %}
+                                        <b>{{ friend.profile.member.email }}</b>
+                                    {% elif friend.member_one.email != user.email %}
+                                        <b>{{ friend.member_one.email }}</b>
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="actions">
+                                {% csrf_token %}
+                                <input class="friend_id" type="hidden" value="{{ friend.id }}">
+                                <div class="ui positive button approve_btn">
+                                    <i class="checkmark icon"></i>
+                                    Sure
+                                </div>
+                                <div class="ui negative button">
+                                    <i class="x icon"></i>
+                                    Cancel
+                                </div>
+                            </div>
+                        </div>
+                        <button class="ui button negative delete_friend">
+                            <i class="trash alternate icon"></i>
+                        </button>
+                    </div>
+                    <i class="user icon blue"></i>
+                    <div class="content">
+                        {% if friend.profile.member.email != user.email %}
+                            {{ friend.profile.member.email }}
+                        {% elif friend.member_one.email != user.email %}
+                            {{ friend.member_one.email }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h3>No friend yet.</h3>
+    {% endif %}
+
+    <script>
+        $(document).ready(function () {
+
+            function delete_re(id, csrf)
+            {
+                $.ajax({
+                    url:"{% url 'deletefriend.page' %}",
+                    method:"POST",
+                    data:{
+                        "id":id,
+                        "csrfmiddlewaretoken":csrf
+                    },
+                    success:function(){
+                        location.reload()
+                    }
+                })
+            }
+
+
+            $(".sent").hover(function () {
+
+                $(".meh").addClass("frown")
+                $(".frown").removeClass("meh")
+            }, function () {
+                $(".frown").addClass("meh")
+                $(".meh").removeClass("frown")
+            })
+
+            {#  This is work for delete button  #}
+            $(".delete_friend").on("click", function () {
+
+                var model = $(this).parent().children(".friend")
+                $(model).modal("setting", "closable", false).modal("show")
+
+            })
+
+            $(".approve_btn").on("click", function(){
+                var id = $(this).parent().children("input[class='friend_id']").val()
+                var csrf = $(this).parent().children("input[name='csrfmiddlewaretoken']").val()
+                delete_re(id, csrf)
+            })
+        })
+    </script>
+{% endblock %}

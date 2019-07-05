@@ -1,0 +1,42 @@
+{% if messpoll.members|length > 0 %}
+    <table class="ui inverted teal celled structured table">
+        <thead>
+        <tr>
+            <th rowspan="2">Meal Rate : {{ messpoll.meal_rate|floatformat }}<br>Name</th>
+            <th>Total Meal</th>
+            <th>Total Bazar</th>
+            <th>Total Service Charge</th>
+            <th>Debit TK</th>
+            <th>Credit TK</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for mm in messpoll.members %}
+            <tr>
+                <td>{{ mm.member.email }}</td>
+                <td>{{ mm.total_meal }}</td>
+                <td>{{ mm.total_bazar_cost|floatformat }}</td>
+                <td>{{ mm.total_service_charge|floatformat }}</td>
+                <td>{{ mm.debit_tk|floatformat }}</td>
+                <td>{{ mm.credit_tk|floatformat }}</td>
+                <td>{{ mm.balance|floatformat }}</td>
+            </tr>
+
+        {% endfor %}
+
+        <tr>
+            <td colspan="6">Total</td>
+            <td>{{ messpoll.totalBack|floatformat }}</td>
+        </tr>
+        <tr>
+           <td colspan="6">Total Service charge</td>
+            <td>{{ messpoll.totalService }}</td>
+        </tr>
+        <tr>
+            <td colspan="6">Calculation Error</td>
+            <td>{{ messpoll.calculation_error|floatformat }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endif %}

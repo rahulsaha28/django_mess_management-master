@@ -1,0 +1,25 @@
+{% extends "member/base.html" %}
+{% load widget_tweaks %}
+{% block title %}
+    Sign::Up
+{% endblock %}
+
+{% block content %}
+    <div class="ui three column grid">
+        <div class="ui four wide column"></div>
+        <div class="ui six wide column center">
+            {% include "member/error_message.html" %}
+            <form class="ui form" method="post">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                <div class="field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <button class="ui button teal">Register</button>
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}

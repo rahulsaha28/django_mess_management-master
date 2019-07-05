@@ -1,0 +1,206 @@
+{% extends "member/profile/profile.html" %}
+{% block search_result %}
+    <br>
+    <br>
+    <div class="ui middle aligned divided list">
+        {% if member.email != user.email %}
+            <div class="item">
+                <div class="right floated content">
+                    {% if sentrequest == 0 %}
+                        <div class="friend_r">
+                            {% csrf_token %}
+                            <input name="friend_id" type="hidden" value="{{ member.id }}">
+                            <button class="ui button primary friend_request">
+                                <i class="user plus icon"></i> Add Friend
+                            </button>
+                        </div>
+                    {% elif sentrequest == 1 %}
+                        <div class="friend_r">
+                            {% csrf_token %}
+                            <input name="friend_id" type="hidden" value="{{ member.id }}">
+                            <button class="ui button primary friend_request_cancel">
+                                <i class="user times icon"></i> Cancel Friend Request
+                            </button>
+                        </div>
+
+                    {% elif sentrequest == 2 %}
+                        <div class="friend_r">
+                            {% csrf_token %}
+                            <input name="friend_id" type="hidden" value="{{ member.id }}">
+                            <button class="ui button primary friend_request_accept">
+                                <i class="check icon"></i> Accept request
+                            </button>
+                            <button class="ui button primary negative friend_request_delete">
+                                <i class="trash alternate icon"></i>
+                            </button>
+                        </div>
+                    {% elif sentrequest == 3 %}
+                        <div class="friend_r">
+                            <button class="ui button primary ">
+                                <i class="user icon"></i> Friend
+                            </button>
+
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="content">
+                    <h3><i class="user icon"></i> {{ member.email }}</h3>
+                </div>
+            </div>
+        {% else %}
+            <h3>This is you.</h3>
+        {% endif %}
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            function edit_r(id) {
+
+                data = `
+                    {% csrf_token %}
+                            <input name="friend_id" type="hidden" value="` + id + `">
+                            <button class="ui button primary friend_request">
+                                <i class="user plus icon"></i> Add Friend
+                            </button>
+                `
+                return data
+            }
+
+            function edit_c(id) {
+                data = `
+                    {% csrf_token %}
+                            <input name="friend_id" type="hidden" value="` + id + `">
+                            <button class="ui button primary friend_request_cancel">
+                                <i class="user times icon"></i> Cancel Friend Request
+                            </button>
+                `
+                return data
+            }
+
+            function edit_a(id) {
+                data = `
+                    <button class="ui button primary">
+                       <i class="user icon"></i> Friend
+                    </button>
+                `
+                return data
+            }
+
+
+            function sent_request(id, csrf) {
+                $.ajax({
+                    url: "{% url 'friendrequest.page' %}",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "friend_id": id,
+                        "csrfmiddlewaretoken": csrf
+                    },
+                    success: function (data) {
+                        console.log("sending")
+                        $(".friend_r").html(edit_c(data.id))
+                        cancel_friend_re()
+                    }
+                })
+            }
+
+            function cancel_request(id, csrf) {
+                $.ajax({
+                    url: "{% url 'friendrequestcancel.page' %}",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "friend_id": id,
+                        "csrfmiddlewaretoken": csrf
+                    },
+                    success: function (data) {
+
+                        $(".friend_r").html(edit_r(data.id))
+                        sent_friend_re()
+                    }
+                })
+            }
+
+            function delete_request(id, csrf) {
+                $.ajax({
+                    url: "{% url 'friendrequestdelete.page' %}",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "friend_id": id,
+                        "csrfmiddlewaretoken": csrf
+                    },
+                    success: function (data) {
+                        $(".friend_r").html(edit_r(data.id))
+                        sent_friend_re()
+                    }
+
+                })
+            }
+
+            function accept_request(id, csrf) {
+                $.ajax({
+                    url: "{% url 'friendrequestaccept.page' %}",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "friend_id": id,
+                        "csrfmiddlewaretoken": csrf
+                    },
+                    success: function (data) {
+                        $(".friend_r").html(edit_a(data.id))
+                    }
+                })
+            }
+
+            function sent_friend_re() {
+
+                $(".friend_request").on("click", function () {
+
+                    let id = $("input[name='friend_id']").val()
+                    let csrf = $("input[name='csrfmiddlewaretoken']").val()
+
+                    sent_request(id, csrf)
+                })
+            }
+
+            function cancel_friend_re() {
+                $(".friend_request_cancel").on("click", function () {
+
+                    let id = $("input[name='friend_id']").val()
+                    let csrf = $("input[name='csrfmiddlewaretoken']").val()
+
+                    cancel_request(id, csrf)
+                })
+            }
+
+            function delete_friend_re() {
+                $(".friend_request_delete").on("click", function () {
+
+                    let id = $("input[name='friend_id']").val()
+                    let csrf = $("input[name='csrfmiddlewaretoken']").val()
+                    delete_request(id, csrf)
+
+                })
+            }
+
+            function accept_friend_re() {
+                $(".friend_request_accept").on("click", function () {
+                    let id = $("input[name='friend_id']").val()
+                    let csrf = $("input[name='csrfmiddlewaretoken']").val()
+                    accept_request(id, csrf)
+                })
+            }
+
+            accept_friend_re()
+            sent_friend_re()
+            cancel_friend_re()
+            delete_friend_re()
+
+
+        })
+    </script>
+{% endblock %}

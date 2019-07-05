@@ -1,0 +1,54 @@
+{% if meals.count > 0 %}
+    <table class="ui celled padded table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th><i class="user icon"></i>Member Name</th>
+            <th><i class="clock outline icon"></i>Brakefast</th>
+            <th><i class="clock outline icon"></i>Lunch</th>
+            <th><i class="clock outline icon"></i>Dinner</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td>{{ meal.date_of_creation|date }}</td>
+                <td>{{ meal.member.email }}</td>
+                <td>{{ meal.b }}</td>
+                <td>{{ meal.l }}</td>
+                <td>{{ meal.d }}</td>
+                <td>
+                    <button class="positive ui button edit_meal_e">
+                        <i class="ui edit icon"></i>
+                    </button>
+                    <div class="ui mini modal edit_meal_detail">
+                        <div class="ui content">
+                            <form method="post" class="ui form" action="{% url 'meal_edit_manager.page' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="meal_id" value={{ meal.id }}>
+                                <input type="hidden" name="poll_id" value={{ meal.poll.id }}>
+                                <div class="field">
+                                    <input name="b" type="number" value={{ meal.b }}>
+                                </div>
+                                <div class="field">
+                                    <input name="l" type="number" value={{ meal.l }}>
+                                </div>
+                                <div class="field">
+                                    <input name="d" type="number" value={{ meal.d }}>
+                                </div>
+                                <button class="ui button green">Save</button>
+                            </form>
+                        </div>
+                        <div class="ui actions">
+                            <button class="ui button grey cancel_meal_x">Cancel</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endif %}
